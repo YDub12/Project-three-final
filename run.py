@@ -11,6 +11,12 @@ HIT_SYMBOL = 'H'
 MISS_SYMBOL = 'M'
 
 # Create an empty board
+def create_board():
+    return[[EMPTY_SYMBOL for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
+    print("Debugging check")
+    for row in board:
+        print(" ".join(row))
+    return board
 
 # Welcome message 
 def welcome_message(username):
@@ -21,9 +27,15 @@ def welcome_message(username):
 
 # Main function
 def main():
-    # Get username 
+    # Get username and print Welcome
     username = input("Enter your username here: ")
     welcome_message(username)
+
+    # Create board 
+    player_board = create_board()
+    computer_board = create_board()
+
+    
 
 
 if __name__ == "__main__":

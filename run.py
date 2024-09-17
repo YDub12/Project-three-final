@@ -25,17 +25,52 @@ def welcome_message(username):
     print("Your goal is to sink all of your opponents ships. \n")
     print("You will do this by making guesses below.")
 
+# Game selection menu
+def select_game_type():
+    print("Select Game Type:\n")
+    print("1. Play against Computer")
+    print("2. Play Local Multiplier")
+    print("3. Exit")
+
+    while True:
+        choice = input("Enter your choice (1/2/3): ").strip()
+        print(f"Debugging: User input is '{choice}'")
+        if choice in ['1', '2', '3']:
+            return int(choice)
+        else:
+            print("Invalid choice. Please choose 1, 2 or 3.")
+
+# Game start functions 
+# Check if a ship can be placed at the specified location
+def valid_placement(board, row, col, size, orientation):
+    if orientation == 'H':
+        if col + size > BOARD_SIZE:
+            return False
+        for i in range(size):
+            if board[row][col + i] != EMPTY_SYMBOL:
+                return False
+    else:
+        if row + size > BOARD_SIZE:
+            return False
+        for i in range(size):
+            if board[row + i][col] != EMPTY_SYMBOL:
+                return False
+    return True
+
+
 # Main function
 def main():
     # Get username and print Welcome
     username = input("Enter your username here: ")
     welcome_message(username)
 
+    game_type = select_game_type()
+
     # Create board 
     player_board = create_board()
     computer_board = create_board()
 
-    
+
 
 
 if __name__ == "__main__":

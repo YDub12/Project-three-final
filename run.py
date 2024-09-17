@@ -69,6 +69,38 @@ def valid_placement(board, row, col, size, orientation):
                 return False
     return True
 
+# Place a single ship on the board
+def place_ship(board, row, col, size, orientation):
+    for i in range(size):
+        if orientation == 'H':
+            board[row][col + i] = SHIP_SYMBOL
+        else:
+            board[row + i][col] = SHIP_SYMBOL
+
+# Let the player manually place ships 
+def player_place_ships(board):
+    print("\nPlace your ships on the board.")
+    for size in SHIP_SIZES:
+        while True:
+            try:
+                print_board(board, show_ships=True)
+                print(f"\nPlace your ship of size {size}.")
+                row = int(input(f"Enter the starting row (0-{BOARD_SIZE-1}): "))
+                col = int(input(f"Enter the starting column (0-{BOARD_SIZE-1}): "))
+                orientation = input("Enter orientation (H for horizontal, V for vertical): ").upper()
+
+                if orientation not in ['H', 'V']:
+                    print("Invalid orientation. Please choose H or V.")
+                    continue
+
+                if valid_placement(board, row, col, size, orientation):
+                    place_ship(board, row, col, size, orientation)
+                    break
+                else:
+                    print("Invalid placement. The ship cannot go off the board or overlap with other ships.")
+            except ValueError:
+                print("Invalid input. Please enter valid numbers for row and column.")
+
 # Main function
 def main():
     # Get username and print Welcome
@@ -87,7 +119,9 @@ def main():
     print("Computer's Board(hidden ships):")
     print_board(computer_board)
 
-
+    # Player places ships
+    print(f"\n{username}, it's time to place your ships.")
+    player_place_ships(player_board)
 
 if __name__ == "__main__":
     main()

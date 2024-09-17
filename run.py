@@ -18,6 +18,18 @@ def create_board():
         print(" ".join(row))
     return board
 
+# Display the board (hide ships unless show_ships is True)
+def print_board(board, show_ships=False):
+    print("  " + " ".join([str(i) for i in range(BOARD_SIZE)]))  # Column numbers
+    for idx, row in enumerate(board):
+        display_row = []
+        for cell in row:
+            if cell == SHIP_SYMBOL and not show_ships:
+                display_row.append(EMPTY_SYMBOL)
+            else:
+                display_row.append(cell)
+        print(f"{idx} " + " ".join(display_row))  # Row number
+
 # Welcome message 
 def welcome_message(username):
     print(f"Welcome Admiral {username}, to Battleships!\n")
@@ -57,7 +69,6 @@ def valid_placement(board, row, col, size, orientation):
                 return False
     return True
 
-
 # Main function
 def main():
     # Get username and print Welcome
@@ -70,6 +81,11 @@ def main():
     player_board = create_board()
     computer_board = create_board()
 
+    # Display board
+    print("Player's Board:")
+    print_board(player_board)
+    print("Computer's Board(hidden ships):")
+    print_board(computer_board)
 
 
 

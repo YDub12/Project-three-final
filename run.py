@@ -5,6 +5,10 @@ BOARD_SIZE = 5
 SHIP_SIZES = [3, 2, 1, 1]
 
 # Symbols for the board
+EMPTY_SYMBOL = '0'
+SHIP_SYMBOL = 'S'
+HIT_SYMBOL = 'H'
+MISS_SYMBOL = 'M'
 
 # Create an empty board
 

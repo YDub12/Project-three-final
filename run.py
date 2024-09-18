@@ -117,6 +117,33 @@ def add_computer_ships(board):
                 place_ship(board, row, col, size, orientation)
                 break
 
+ # Get player's guess               
+def get_player_guess(guesses):
+    while True:
+        try:
+            guess = input("Enter your guess (row and column separated by space): ")
+            row, col = map(int, guess.strip().split())
+            if row < 0 or row >= BOARD_SIZE or col < 0 or col >= BOARD_SIZE:
+                print(f"Please enter numbers between 0 and {BOARD_SIZE - 1}.")
+                continue
+            if (row, col) in guesses:
+                print("You have already guessed that location. Try again.")
+                continue
+            return row, col
+        except ValueError:
+            print("Invalid input format. Please enter two numbers separated by space.")
+
+# Check if a guess is a hit or miss
+def check_guess(board, row, col):
+    if board[row][col] == SHIP_SYMBOL:
+        board[row][col] = HIT_SYMBOL
+        print("Hit!")
+        return True
+    else:
+        board[row][col] = MISS_SYMBOL
+        print("Miss!")
+        return False
+
 # Main function
 def main():
     # Get username and print Welcome
@@ -143,6 +170,8 @@ def main():
     add_computer_ships(computer_board)
     print("Computer's Board(hidden ships):")
     print_board(computer_board)
+
+
 
 if __name__ == "__main__":
     main()

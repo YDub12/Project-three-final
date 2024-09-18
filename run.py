@@ -101,6 +101,22 @@ def player_place_ships(board):
             except ValueError:
                 print("Invalid input. Please enter valid numbers for row and column.")
 
+# Randomly place ships on the board (for computer)
+def add_computer_ships(board):
+    for size in SHIP_SIZES:
+        while True:
+            orientation = random.choice(['H', 'V'])
+            if orientation == 'H':
+                row = random.randint(0, BOARD_SIZE - 1)
+                col = random.randint(0, BOARD_SIZE - size)
+            else:  # 'V'
+                row = random.randint(0, BOARD_SIZE - size)
+                col = random.randint(0, BOARD_SIZE - 1)
+
+            if is_valid_placement(board, row, col, size, orientation):
+                place_ship(board, row, col, size, orientation)
+                break
+
 # Main function
 def main():
     # Get username and print Welcome
@@ -122,6 +138,10 @@ def main():
     # Player places ships
     print(f"\n{username}, it's time to place your ships.")
     player_place_ships(player_board)
+    
+     # Computer places ships
+    print("Computer is placing its ships...")
+    add_computer_ships(computer_board)
 
 if __name__ == "__main__":
     main()

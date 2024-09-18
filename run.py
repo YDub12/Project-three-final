@@ -113,7 +113,7 @@ def add_computer_ships(board):
                 row = random.randint(0, BOARD_SIZE - size)
                 col = random.randint(0, BOARD_SIZE - 1)
 
-            if is_valid_placement(board, row, col, size, orientation):
+            if valid_placement(board, row, col, size, orientation):
                 place_ship(board, row, col, size, orientation)
                 break
 
@@ -132,16 +132,17 @@ def main():
     # Display board
     print("Player's Board:")
     print_board(player_board)
-    print("Computer's Board(hidden ships):")
-    print_board(computer_board)
+    
 
     # Player places ships
     print(f"\n{username}, it's time to place your ships.")
     player_place_ships(player_board)
-    
+
      # Computer places ships
     print("Computer is placing its ships...")
     add_computer_ships(computer_board)
+    print("Computer's Board(hidden ships):")
+    print_board(computer_board)
 
 if __name__ == "__main__":
     main()

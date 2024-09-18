@@ -143,10 +143,50 @@ def check_guess(board, row, col):
         board[row][col] = MISS_SYMBOL
         print("Miss!")
         return False
-        
+
 # Check if all ships are sunk
 def all_ships_sunk(board):
     return all(SHIP_SYMBOL not in row for row in board)
+
+# Computer guess
+def computer_guess(player_board, guesses):
+    while True:
+        row, col = random.randint(0, BOARD_SIZE - 1), random.randint(0, BOARD_SIZE - 1)
+        if (row, col) not in guesses:
+            guesses.add((row, col))
+            print(f"Computer's guess: {row} {col}")
+            return row, col
+# Main game loop for playing against the computer
+def play_against_computer(player_board, computer_board):
+    player_guesses = set()
+    computer_guesses = set()
+    attempts = 0
+
+    while not all_ships_sunk(computer_board):
+        # Player's turn
+        print("\nCurrent Board:")
+        print_board(computer_board)
+        row, col = get_player_guess(player_guesses)
+        player_guesses.add((row, col))
+        check_guess(computer_board, row, col)
+        attempts += 1
+
+        if all_ships_sunk(computer_board):
+            break
+
+        # Computer's turn
+        print("\nComputer is guessing...")
+        computer_row, computer_col = computer_guess(player_board, computer_guesses)
+        check_guess(player_board, computer_row, computer_col)
+        
+        # Show the player's board after the computer's guess
+        print("\nYour Board (after computer's guess):")
+        print_board(player_board, show_ships=True)
+
+    print("\nCongratulations! You sunk all the ships!")
+    print(f"It took you {attempts} attempts.")
+    print("\nFinal Board:")
+    print_board(computer_board, show_ships=True)
 
 # Main function
 def main():
@@ -174,6 +214,15 @@ def main():
     add_computer_ships(computer_board)
     print("Computer's Board(hidden ships):")
     print_board(computer_board)
+
+      # Ask if player wants to play against the computer
+    play_against_ai = input("Do you want to play against the computer? (yes/no): ").lower() == "yes"
+
+    if play_against_ai:
+        play_against_computer(player_board, computer_board)
+    else:
+        print("\nFinal Board with Ships (debug mode):")
+        print_board(computer_board, show_ships=True)
 
 
 

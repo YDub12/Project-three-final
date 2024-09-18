@@ -143,6 +143,10 @@ def check_guess(board, row, col):
         board[row][col] = MISS_SYMBOL
         print("Miss!")
         return False
+        
+# Check if all ships are sunk
+def all_ships_sunk(board):
+    return all(SHIP_SYMBOL not in row for row in board)
 
 # Main function
 def main():

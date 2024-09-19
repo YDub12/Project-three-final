@@ -201,17 +201,21 @@ def main():
     username = input("Enter your username here: ")
     welcome_message(username)
 
-    game_type = select_game_type()
-    if game_type == 3:
-        print("Exiting game. Goodbye!")
-        return
-    elif game_type == 1:
-        # Play against computer
-        print("Computer is placing its ships...")
-        add_computer_ships(opponent_board)
-        play_against_computer(player_board, opponent_board)
-    elif game_type == 2:
-        print("Local Multiplayer is under development.")
+    while True:  # This loop keeps the menu selection active until a valid option is chosen.
+        game_type = select_game_type()
+        if game_type == 3:
+            print("Exiting game. Goodbye!")
+            return
+        elif game_type == 1:
+            # Play against computer
+            print("Computer is placing its ships...")
+            add_computer_ships(opponent_board)
+            print("It's time to place your ships.")
+            player_place_ships(player_board)
+            play_against_computer(player_board, opponent_board)
+            break  # Exit the loop once the game has started
+        elif game_type == 2:
+            print("Local Multiplayer is under development. Returning to menu...")
 
     # Create board 
     player_board = create_board()

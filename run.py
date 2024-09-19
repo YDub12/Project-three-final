@@ -45,7 +45,7 @@ def select_game_type():
     print("3. Exit")
 
     while True:
-        choice = input("Enter your choice (1/2/3): ").strip()
+        choice = input("Enter your choice (1/2/3):\n ").strip()
         print(f"Debugging: User input is '{choice}'")
         if choice in ['1', '2', '3']:
             return int(choice)
@@ -85,9 +85,9 @@ def player_place_ships(board):
             try:
                 print_board(board, show_ships=True)
                 print(f"\nPlace your ship of size {size}.")
-                row = int(input(f"Enter the starting row (0-{BOARD_SIZE-1}): "))
-                col = int(input(f"Enter the starting column (0-{BOARD_SIZE-1}): "))
-                orientation = input("Enter orientation (H for horizontal, V for vertical): ").upper()
+                row = int(input(f"Enter the starting row (0-{BOARD_SIZE-1}):\n"))
+                col = int(input(f"Enter the starting column (0-{BOARD_SIZE-1}):\n "))
+                orientation = input("Enter orientation (H for horizontal, V for vertical):\n ").upper()
 
                 if orientation not in ['H', 'V']:
                     print("Invalid orientation. Please choose H or V.")
@@ -121,7 +121,7 @@ def add_computer_ships(board):
 def get_player_guess(guesses):
     while True:
         try:
-            guess = input("Enter your guess (row and column separated by space): ")
+            guess = input("Enter your guess (row and column separated by space):\n ")
             row, col = map(int, guess.strip().split())
             if row < 0 or row >= BOARD_SIZE or col < 0 or col >= BOARD_SIZE:
                 print(f"Please enter numbers between 0 and {BOARD_SIZE - 1}.")
@@ -198,7 +198,7 @@ def play_against_computer(player_board, computer_board):
 # Main function
 def main():
     # Get username and print Welcome
-    username = input("Enter your username here: ")
+    username = input("Enter your username here:\n ")
     welcome_message(username)
 
     while True:  # This loop keeps the menu selection active until a valid option is chosen.
@@ -237,7 +237,7 @@ def main():
     print_board(computer_board)
 
       # Ask if player wants to play against the computer
-    play_against_ai = input("Do you want to play against the computer? (yes/no): ").lower() in ["yes", "y"]
+    play_against_ai = input("Do you want to play against the computer? (yes/no):\n ").lower() in ["yes", "y"]
 
     if play_against_ai:
             play_against_computer(player_board, computer_board)

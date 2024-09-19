@@ -156,14 +156,16 @@ def computer_guess(player_board, guesses):
             guesses.add((row, col))
             print(f"Computer's guess: {row} {col}")
             return row, col
+
 # Main game loop for playing against the computer
 def play_against_computer(player_board, computer_board):
     player_guesses = set()
     computer_guesses = set()
     attempts = 0
 
-    while not all_ships_sunk(computer_board):
+    while True:
         # Player's turn
+        print("Your turn to guess:")
         print("\nCurrent Board:")
         print_board(computer_board)
         row, col = get_player_guess(player_guesses)
@@ -172,12 +174,17 @@ def play_against_computer(player_board, computer_board):
         attempts += 1
 
         if all_ships_sunk(computer_board):
+            print("Congratulations! You've sunk all of the computer's ships")
             break
 
         # Computer's turn
         print("\nComputer is guessing...")
         computer_row, computer_col = computer_guess(player_board, computer_guesses)
         check_guess(player_board, computer_row, computer_col)
+
+        if all_ships_sunk(player_board):
+            print("The machines will take over after this. Well done.")
+            break
         
         # Show the player's board after the computer's guess
         print("\nYour Board (after computer's guess):")
@@ -195,6 +202,16 @@ def main():
     welcome_message(username)
 
     game_type = select_game_type()
+    if game_type == 3:
+        print("Exiting game. Goodbye!")
+        return
+    elif game_type == 1:
+        # Play against computer
+        print("Computer is placing its ships...")
+        add_computer_ships(opponent_board)
+        play_against_computer(player_board, opponent_board)
+    elif game_type == 2:
+        print("Local Multiplayer is under development.")
 
     # Create board 
     player_board = create_board()
@@ -216,13 +233,13 @@ def main():
     print_board(computer_board)
 
       # Ask if player wants to play against the computer
-    play_against_ai = input("Do you want to play against the computer? (yes/no): ").lower() == "yes"
+    play_against_ai = input("Do you want to play against the computer? (yes/no): ").lower() in ["yes", "y"]
 
     if play_against_ai:
-        play_against_computer(player_board, computer_board)
+            play_against_computer(player_board, computer_board)
     else:
-        print("\nFinal Board with Ships (debug mode):")
-        print_board(computer_board, show_ships=True)
+            print("\nFinal Board with Ships (debug mode):")
+            print_board(computer_board, show_ships=True)
 
 
 

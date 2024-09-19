@@ -201,49 +201,33 @@ def main():
     username = input("Enter your username here:\n ")
     welcome_message(username)
 
-    # Create board 
-    player_board = create_board()
-    computer_board = create_board()
-
     while True:  # This loop keeps the menu selection active until a valid option is chosen.
         game_type = select_game_type()
         if game_type == 3:
             print("Exiting game. Goodbye!")
-            return
+            return  # Exit the program
         elif game_type == 1:
             # Play against computer
+            player_board = create_board()
+            computer_board = create_board()
+
             print("Computer is placing its ships...")
             add_computer_ships(computer_board)
+
             print("It's time to place your ships.")
             player_place_ships(player_board)
+
+            # Display computer's board with ships visible (for debugging or game customization)
+            print("Computer's Board (showing ships for debugging):")
+            print_board(computer_board, show_ships=True)  # Show the computer's ships
+
             play_against_computer(player_board, computer_board)
-            break  # Exit the loop once the game has started
+            
+            # After the game ends, return to the main menu
+            print("\nReturning to the main menu...\n")
+        
         elif game_type == 2:
             print("Local Multiplayer is under development. Returning to menu...")
-
-    # Display board
-    print("Player's Board:")
-    print_board(player_board)
-    
-
-    # Player places ships
-    print(f"\n{username}, it's time to place your ships.")
-    player_place_ships(player_board)
-
-     # Computer places ships
-    print("Computer is placing its ships...")
-    add_computer_ships(computer_board)
-    print("Computer's Board(hidden ships):")
-    print_board(computer_board)
-
-      # Ask if player wants to play against the computer
-    play_against_ai = input("Do you want to play against the computer? (yes/no):\n ").lower() in ["yes", "y"]
-
-    if play_against_ai:
-            play_against_computer(player_board, computer_board)
-    else:
-            print("\nFinal Board with Ships (debug mode):")
-            print_board(computer_board, show_ships=True)
 
 
 

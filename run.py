@@ -197,9 +197,16 @@ def play_against_computer(player_board, computer_board):
 
 # Main function
 def main():
-    # Get username and print Welcome
-    username = input("Enter your username here:\n ")
-    welcome_message(username)
+    # Get username with validation (non-empty and max 10 characters)
+    while True:
+        username = input("Enter your username (max 10 characters):\n ").strip()
+        
+        if len(username) < 3:
+            print("Username must be at least 3 characters long. Please enter a longer name.")
+        elif len(username) > 10:
+            print("Username cannot exceed 10 characters. Please enter a shorter name.")
+        else:
+            break  # Exit the loop once a valid username is entered
 
     while True:  # This loop keeps the menu selection active until a valid option is chosen.
         game_type = select_game_type()

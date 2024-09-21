@@ -28,6 +28,7 @@ Each step was checked and validated individually at each stage and then at the e
 ![CI Python Linter](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Code%20checker.PNG)
 
 Validation for username field: 
+
 ![Username validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/username%20validation.PNG)
 
 Game type:

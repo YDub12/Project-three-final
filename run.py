@@ -50,13 +50,16 @@ def select_game_type():
 # Game start functions 
 # Check if a ship can be placed at the specified location
 def valid_placement(board, row, col, size, orientation):
+    # Ensure the starting position is within bounds
+    if row < 0 or row >= BOARD_SIZE or col < 0 or col >= BOARD_SIZE:
+        return False
     if orientation == 'H':
         if col + size > BOARD_SIZE:
             return False
         for i in range(size):
             if board[row][col + i] != EMPTY_SYMBOL:
                 return False
-    else:
+    else: # Orientation 'V'
         if row + size > BOARD_SIZE:
             return False
         for i in range(size):

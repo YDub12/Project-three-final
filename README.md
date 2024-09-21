@@ -23,7 +23,7 @@ Initial design was built on hthe basic game design and mapped out roughly here
 * Enhanced AI: The computer’s strategy could be made more intelligent in future updates.
 * Add a nation selector to add some variety, using historical names of ships to provide some additional flavour
 ## Testing 
-Each step was checked and validated individually at each stage.
+Each step was checked and validated individually at each stage and then at the end passed through the checker.
 
 Validation for username field: 
 ![Username validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/username%20validation.PNG)

@@ -1,4 +1,4 @@
-import random 
+import random
 
 # Constants
 BOARD_SIZE = 5
@@ -10,13 +10,16 @@ SHIP_SYMBOL = 'S'
 HIT_SYMBOL = 'H'
 MISS_SYMBOL = 'M'
 
+
 # Create an empty board
 def create_board():
-    return[[EMPTY_SYMBOL for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
-    
+    return [[EMPTY_SYMBOL for _ in range(BOARD_SIZE)]
+            for _ in range(BOARD_SIZE)]
+
+
 # Display the board (hide ships unless show_ships is True)
 def print_board(board, show_ships=False):
-    print("  " + " ".join([str(i) for i in range(BOARD_SIZE)]))  # Column numbers
+    print("  " + " ".join([str(i) for i in range(BOARD_SIZE)]))
     for idx, row in enumerate(board):
         display_row = []
         for cell in row:
@@ -26,12 +29,14 @@ def print_board(board, show_ships=False):
                 display_row.append(cell)
         print(f"{idx} " + " ".join(display_row))  # Row number
 
-# Welcome message 
+
+# Welcome message
 def welcome_message(username):
     print(f"Welcome Admiral {username}, to Battleships!\n")
     print(f"You will be playing on a {BOARD_SIZE}X{BOARD_SIZE} grid.\n")
     print("Your goal is to sink all of your opponents ships. \n")
     print("You will do this by making guesses below.")
+
 
 # Game selection menu
 def select_game_type():
@@ -47,7 +52,8 @@ def select_game_type():
         else:
             print("Invalid choice. Please choose 1, 2 or 3.")
 
-# Game start functions 
+
+# Game start functions
 # Check if a ship can be placed at the specified location
 def valid_placement(board, row, col, size, orientation):
     # Ensure the starting position is within bounds
@@ -59,13 +65,14 @@ def valid_placement(board, row, col, size, orientation):
         for i in range(size):
             if board[row][col + i] != EMPTY_SYMBOL:
                 return False
-    else: # Orientation 'V'
+    else:  # Orientation 'V'
         if row + size > BOARD_SIZE:
             return False
         for i in range(size):
             if board[row + i][col] != EMPTY_SYMBOL:
                 return False
     return True
+
 
 # Place a single ship on the board
 def place_ship(board, row, col, size, orientation):
@@ -75,7 +82,8 @@ def place_ship(board, row, col, size, orientation):
         else:
             board[row + i][col] = SHIP_SYMBOL
 
-# Let the player manually place ships 
+
+# Let the player manually place ships
 def player_place_ships(board):
     print("\nPlace your ships on the board.")
     for size in SHIP_SIZES:
@@ -83,9 +91,12 @@ def player_place_ships(board):
             try:
                 print_board(board, show_ships=True)
                 print(f"\nPlace your ship of size {size}.")
-                row = int(input(f"Enter the starting row (0-{BOARD_SIZE-1}):\n"))
-                col = int(input(f"Enter the starting column (0-{BOARD_SIZE-1}):\n "))
-                orientation = input("Enter orientation (H for horizontal, V for vertical):\n ").upper()
+                row = int(input(f"Enter the starting row
+                          (0-{BOARD_SIZE-1}): \n"))
+                col = int(input(f"Enter the starting column
+                          (0-{BOARD_SIZE-1}): \n "))
+                orientation = input("Enter orientation(H for horizontal,
+                                    V for vertical): \n").upper()
 
                 if orientation not in ['H', 'V']:
                     print("Invalid orientation. Please choose H or V.")
@@ -95,9 +106,13 @@ def player_place_ships(board):
                     place_ship(board, row, col, size, orientation)
                     break
                 else:
-                    print("Invalid placement. The ship cannot go off the board or overlap with other ships.")
+                    print("Invalid placement.
+                          The ship cannot go off the board
+                          or overlap with other ships.")
             except ValueError:
-                print("Invalid input. Please enter valid numbers for row and column.")
+                print("Invalid input.
+                      Please enter valid numbers for row and column.")
+
 
 # Randomly place ships on the board (for computer)
 def add_computer_ships(board):
@@ -115,11 +130,13 @@ def add_computer_ships(board):
                 place_ship(board, row, col, size, orientation)
                 break
 
- # Get player's guess               
+
+# Get player's guess
 def get_player_guess(guesses):
     while True:
         try:
-            guess = input("Enter your guess (row and column separated by space):\n ")
+            guess = input("Enter your guess
+                          (row and column separated by space): \n ")
             row, col = map(int, guess.strip().split())
             if row < 0 or row >= BOARD_SIZE or col < 0 or col >= BOARD_SIZE:
                 print(f"Please enter numbers between 0 and {BOARD_SIZE - 1}.")
@@ -129,7 +146,9 @@ def get_player_guess(guesses):
                 continue
             return row, col
         except ValueError:
-            print("Invalid input format. Please enter two numbers separated by space.")
+            print("Invalid input format.
+                  Please enter two numbers separated by space.")
+
 
 # Check if a guess is a hit or miss
 def check_guess(board, row, col):
@@ -142,18 +161,22 @@ def check_guess(board, row, col):
         print("Miss!")
         return False
 
+
 # Check if all ships are sunk
 def all_ships_sunk(board):
     return all(SHIP_SYMBOL not in row for row in board)
 
+
 # Computer guess
 def computer_guess(player_board, guesses):
     while True:
-        row, col = random.randint(0, BOARD_SIZE - 1), random.randint(0, BOARD_SIZE - 1)
+        row, col = random.randint(0, BOARD_SIZE - 1),
+        random.randint(0, BOARD_SIZE - 1)
         if (row, col) not in guesses:
             guesses.add((row, col))
             print(f"Computer's guess: {row} {col}")
             return row, col
+
 
 # Main game loop for playing against the computer
 def play_against_computer(player_board, computer_board):
@@ -177,36 +200,40 @@ def play_against_computer(player_board, computer_board):
 
         # Computer's turn
         print("\nComputer is guessing...")
-        computer_row, computer_col = computer_guess(player_board, computer_guesses)
+        computer_row, computer_col = computer_guess(player_board,
+                                                    computer_guesses)
         check_guess(player_board, computer_row, computer_col)
 
         if all_ships_sunk(player_board):
             print("The machines will take over after this. Well done.")
             break
-        
+
         # Show the player's board after the computer's guess
         print("\nYour Board (after computer's guess):")
         print_board(player_board, show_ships=True)
 
-    print("\nCongratulations! You sunk all the ships!")
+    print("\nGame Complete")
     print(f"It took you {attempts} attempts.")
     print("\nFinal Board:")
     print_board(computer_board, show_ships=True)
+
 
 # Main function
 def main():
     # Get username with validation (non-empty and max 10 characters)
     while True:
         username = input("Enter your username (max 10 characters):\n ").strip()
-        
+
         if len(username) < 3:
-            print("Username must be at least 3 characters long. Please enter a longer name.")
+            print("Username must be at least 3 characters long.
+                  Please enter a longer name.")
         elif len(username) > 10:
-            print("Username cannot exceed 10 characters. Please enter a shorter name.")
+            print("Username cannot exceed 10 characters.
+                  Please enter a shorter name.")
         else:
             break  # Exit the loop once a valid username is entered
 
-    while True:  # This loop keeps the menu selection active until a valid option is chosen.
+    while True:  # This loop keeps the menu selection active
         game_type = select_game_type()
         if game_type == 3:
             print("Exiting game. Goodbye!")
@@ -222,18 +249,18 @@ def main():
             print("It's time to place your ships.")
             player_place_ships(player_board)
 
-            # Display computer's board with ships visible (for debugging or game customization)
-            print("Computer's Board (showing ships for debugging):")
-            print_board(computer_board, show_ships=True)  # Show the computer's ships
+            # Change show_ships to True to display computer's board
+            print("Computer's Board:")
+            print_board(computer_board, show_ships=False)
 
             play_against_computer(player_board, computer_board)
-            
+
             # After the game ends, return to the main menu
             print("\nReturning to the main menu...\n")
-        
-        elif game_type == 2:
-            print("Local Multiplayer is under development. Returning to menu...")
 
+        elif game_type == 2:
+            print("Local Multiplayer is under development.
+                  Returning to menu...")
 
 
 if __name__ == "__main__":

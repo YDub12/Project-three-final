@@ -1,14 +1,19 @@
 # Battleships 
 This Battleships game is a terminal-based implementation of the classic game on a 5x5 grid. The objective is to sink all of the opponent's ships before they sink yours. The game features a main menu for selecting between playing against the computer, local multiplayer (under development), or exiting.
 
+Played by placing 4 ships of different sizes (3, 2, 1, 1) in spots and hidden. Using the random import into the run.py file to generate random guesses for the computer.  
+
 [[View the live site here](https://battleshipping-a257fd2be3f9.herokuapp.com/)]
 ## Design
 Initial design was built on hthe basic game design and mapped out roughly here 
 
 ![Process map](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Process%20map%20-%20version%201.PNG)
 
-Each function was then built and tested against a main function
+
 ## Features 
+
+![Am I responsive?](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Am%20I%20responsive.PNG)
+
 * Play Against the Computer: The player battles an AI opponent. The player places ships manually, while the computer places ships randomly using "random" which has been imported at the top of the script.
 * Interactive Game Board: The game shows a 5x5 grid where the player can strike at different coordinates to find and sink the opponent's ships.
 * Validation for Inputs: Input prompts include error checking for ship placement, guesses, and menu selection.

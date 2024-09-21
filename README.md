@@ -6,6 +6,8 @@ This Battleships game is a terminal-based implementation of the classic game on 
 Initial design was built on hthe basic game design and mapped out roughly here 
 
 ![Process map](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Process%20map%20-%20version%201.PNG)
+
+Each function was then built and tested against a main function
 ## Features 
 * Play Against the Computer: The player battles an AI opponent. The player places ships manually, while the computer places ships randomly using "random" which has been imported at the top of the script.
 * Interactive Game Board: The game shows a 5x5 grid where the player can strike at different coordinates to find and sink the opponent's ships.
@@ -50,13 +52,18 @@ Victory messages:
 3. Choose your unique app name and select your region
 4. Click "Create app"
 5. On the next page find "settings" and locate "Config Vars"
-6. Click "Reveal Config Vars" and add "PORT" key and value "8000", click "Add"
-7. Scroll down, locate "Buildpack" and click "Add", select "Python"
-8. Repeat step 7. only this time add "Node.js", make sure "Python" is first
-9. Scroll to the top and select "Deploy" tab
-10. Select GitHub as deployment method and search for your repository and link them together
-11. Scroll down and select either "Enable Automatic Deploys" or "Manual Deploy"
-12. 
-## Credits 
+6. Scroll down, locate "Buildpack" and click "Add", select "Python"
+7. Repeat step 6. only this time add "Node.js", make sure "Python" is first
+8. Scroll to the top and select "Deploy" tab
+9. Select GitHub as deployment method and search for your repository and link them together
+10. Scroll down and select either "Enable Automatic Deploys" or "Manual Deploy"
+11. Deployed site here [Battleshipping](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Process%20map%20-%20version%201.PNG)
+
+## Credits
+
 Milton Bradley's 1967 release of battleship the game 
 
+The "Random" import in Python
+
+## Content 
+All code was written by the developer

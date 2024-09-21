@@ -17,9 +17,23 @@ Initial design was built on hte absic game design
 Each step was checked and validated individually at each stage.
 
 Validation for username field: 
+![Username validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/username%20validation.PNG)
 
+Game type:
 
+![Game type Validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Game%20type%20validation.PNG)
 
+Row and columns checked:
+
+![Row validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Corrected%20validation.PNG)
+
+![Column validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Column%20validation.PNG)
+
+User hit and miss:
+
+![User hit](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/User%20guess%20hit.PNG)
+
+![User miss](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/User%20guess%20miss.PNG)
 ## Deployment 
 
 ## Credits 

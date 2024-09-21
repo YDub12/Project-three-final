@@ -3,7 +3,9 @@ This Battleships game is a terminal-based implementation of the classic game on 
 
 [[View the live site here](https://battleshipping-a257fd2be3f9.herokuapp.com/)]
 ## Design
-Initial design was built on hte absic game design
+Initial design was built on hthe basic game design and mapped out roughly here 
+
+![Process map](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Process%20map%20-%20version%201.PNG)
 ## Features 
 * Play Against the Computer: The player battles an AI opponent. The player places ships manually, while the computer places ships randomly using "random" which has been imported at the top of the script.
 * Interactive Game Board: The game shows a 5x5 grid where the player can strike at different coordinates to find and sink the opponent's ships.
@@ -37,8 +39,24 @@ User hit and miss and already guessed:
 
 ![User duplication](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Already%20guessed.PNG)
 
+Victory messages:
 
+![User win](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Victory%20message%20-%20player.PNG)
+
+![Computer win](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Victory%20message%20-%20computer.PNG)
 ## Deployment 
-
+1. Log in to Heroku
+2. On the main page click "New" and select "Create new app"
+3. Choose your unique app name and select your region
+4. Click "Create app"
+5. On the next page find "settings" and locate "Config Vars"
+6. Click "Reveal Config Vars" and add "PORT" key and value "8000", click "Add"
+7. Scroll down, locate "Buildpack" and click "Add", select "Python"
+8. Repeat step 7. only this time add "Node.js", make sure "Python" is first
+9. Scroll to the top and select "Deploy" tab
+10. Select GitHub as deployment method and search for your repository and link them together
+11. Scroll down and select either "Enable Automatic Deploys" or "Manual Deploy"
+12. 
 ## Credits 
+Milton Bradley's 1967 release of battleship the game 
 

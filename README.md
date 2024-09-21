@@ -29,11 +29,15 @@ Row and columns checked:
 
 ![Column validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Column%20validation.PNG)
 
-User hit and miss:
+User hit and miss and already guessed:
 
 ![User hit](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/User%20guess%20hit.PNG)
 
 ![User miss](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/User%20guess%20miss.PNG)
+
+![User duplication](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Already%20guessed.PNG)
+
+
 ## Deployment 
 
 ## Credits 

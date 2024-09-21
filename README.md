@@ -5,16 +5,16 @@ Played by placing 4 ships of different sizes (3, 2, 1, 1) in spots and hidden. U
 
 [[View the live site here](https://battleshipping-a257fd2be3f9.herokuapp.com/)]
 ## Design
-Initial design was built on hthe basic game design and mapped out roughly here 
+Initial design was built on the basic game design and mapped out roughly here 
 
 ![Process map](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Process%20map%20-%20version%201.PNG)
 
 
 ## Features 
-
+Here is how it appears across multiple different screen sizes
 ![Am I responsive?](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Am%20I%20responsive.PNG)
 
-* Play Against the Computer: The player battles an AI opponent. The player places ships manually, while the computer places ships randomly using "random" which has been imported at the top of the script.
+* Play Against the Computer: The player battles an AI opponent. The player places ships manually, while the computer places ships randomly using "random" which has been imported at the top of the script. The player then guesses row and column to see if they have hit. They are presented with the board after to see if they have hit.  
 * Interactive Game Board: The game shows a 5x5 grid where the player can strike at different coordinates to find and sink the opponent's ships.
 * Validation for Inputs: Input prompts include error checking for ship placement, guesses, and menu selection.
 * Replayability: After each game, you can return to the main menu to play again or exit. Due to the random creation of the board for the computer the game has increased replayability. 
@@ -23,7 +23,9 @@ Initial design was built on hthe basic game design and mapped out roughly here
 * Enhanced AI: The computer’s strategy could be made more intelligent in future updates.
 * Add a nation selector to add some variety, using historical names of ships to provide some additional flavour
 ## Testing 
-Each step was checked and validated individually at each stage and then at the end passed through the checker.
+Each step was checked and validated individually at each stage and then at the end passed through the python checker.
+
+![CI Python Linter](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/Code%20checker.PNG)
 
 Validation for username field: 
 ![Username validation](https://raw.githubusercontent.com/YDub12/Project-three-final/refs/heads/main/assets/images/username%20validation.PNG)

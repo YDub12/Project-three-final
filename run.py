@@ -13,11 +13,7 @@ MISS_SYMBOL = 'M'
 # Create an empty board
 def create_board():
     return[[EMPTY_SYMBOL for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
-    print("Debugging check")
-    for row in board:
-        print(" ".join(row))
-    return board
-
+    
 # Display the board (hide ships unless show_ships is True)
 def print_board(board, show_ships=False):
     print("  " + " ".join([str(i) for i in range(BOARD_SIZE)]))  # Column numbers
@@ -46,7 +42,6 @@ def select_game_type():
 
     while True:
         choice = input("Enter your choice (1/2/3):\n ").strip()
-        print(f"Debugging: User input is '{choice}'")
         if choice in ['1', '2', '3']:
             return int(choice)
         else:

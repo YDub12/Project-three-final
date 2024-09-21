@@ -1,4 +1,4 @@
-# Battleships 
+# Battleshipping 
 This Battleships game is a terminal-based implementation of the classic game on a 5x5 grid. The objective is to sink all of the opponent's ships before they sink yours. The game features a main menu for selecting between playing against the computer, local multiplayer (under development), or exiting.
 
 Played by placing 4 ships of different sizes (3, 2, 1, 1) in spots and hidden. Using the random import into the run.py file to generate random guesses for the computer.  
